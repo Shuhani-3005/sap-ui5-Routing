@@ -1,0 +1,72 @@
+---------------CHANGES TO BE DONE IN MANIFEST.JSON FILE WHEN DOING DIFFERENT TYPES OF ROUTING------------------
+
+MANIFEST>JSON
+"routes": [
+        {
+          "name": "Routerouting",
+          "pattern": "",
+          "target": [
+            "Targetrouting"
+          ]
+        },
+
+        {
+          "name": "view2",
+          "pattern": "view2",
+          "target": "view2"
+        },
+
+        
+
+        {
+          "name":"parameter",
+          "pattern": "parameter/{id}",
+          "target":"parameter"
+        },
+
+        {
+          "name":"optional",
+          "pattern": "optional/:id:",
+          "target":["optional"]
+        },
+        {
+          "name": "notFound",
+          "pattern": ":all*:",
+          "target": [
+            "notFound"
+          ]
+        }
+      ],
+      "targets": {
+        "Targetrouting": {
+          "id": "routing",
+          "name": "routing"
+        },
+
+        "view2": {
+          "id": "view2",
+          "name":"view2"
+        },
+
+        "notFound": {
+          "id": "NotFound",
+          "name": "NotFound"
+        },
+
+        "parameter":{
+          "id": "parameter",
+          "name": "parameter"
+        },
+
+        "optional":{
+          "id": "optional",
+          "name": "optional"
+        }
+      }
+    },
+
+
+
+
+
+
