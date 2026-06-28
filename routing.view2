@@ -1,0 +1,33 @@
+<mvc:View controllerName="routing.controller.view2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>Second Page}" showNavButton="true" navButtonPress="onNavBack">
+    <content>
+      <Text text="Welcome! to view2" />
+      <Button text="Go to previous view" press="onNavBack" />
+    </content>
+    </Page>
+</mvc:View>
+
+sap.ui.define([
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/core/UIComponent"
+], (Controller, UIComponent) => {
+    "use strict";
+
+    return Controller.extend("routing.controller.view2", {
+        onInit() {
+            var oRouter = this.getOwnerComponent().getRouter();
+            oRouter.getRoute("parameter").attachPatternMatched(this._onRouteMatched, this);
+        },
+
+        onNavBack: function(){
+           this.getOwnerComponent().getRouter().navTo("Routerouting");   //instructs UI5 to display the view associated with "Targetrouting"
+        
+        },
+
+        
+        
+    });
+});
+
