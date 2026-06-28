@@ -1,0 +1,30 @@
+--------------VIEW CODE---------------------
+
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+          xmlns="sap.m"
+          controllerName="routing.controller.NotFound">
+    <Page title="Page Not Found">
+        <content>
+            <Text text="Oops! The page you requested does not exist." />
+            <Button text="Go Home" press="onNavBack" />
+        </content>
+    </Page>
+</mvc:View>
+
+
+---------------CONTROLLER CODE------------------
+
+
+sap.ui.define([
+    "sap/ui/core/mvc/Controller"
+], function(Controller) {
+    "use strict";
+
+    return Controller.extend("routing.controller.NotFound", {
+        onNavBack: function() {
+            var oRouter = this.getOwnerComponent().getRouter();
+            console.log("Navigating back to home...");
+            oRouter.navTo("Routerouting");  // Navigate back to home view
+        }
+    });
+});
