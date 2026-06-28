@@ -1,0 +1,39 @@
+-----------------VIEW CODE---------------------------
+
+<mvc:View controllerName="routing.controller.optional"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>Second Page}" showNavButton="true" navButtonPress="onNavBack">
+    <content>
+      <Button text="Go to previous view" press="onNavBack" />
+    </content>
+    </Page>
+</mvc:View>
+
+-----------------CONTOLLER CODE----------------------
+
+sap.ui.define([
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/json/JSONModel"
+], (Controller, JSONModel) => {
+    "use strict";
+
+    return Controller.extend("routing.controller.optional", {
+        onInit() {
+            
+        },
+
+        onNavBack: function(){
+            this.getOwnerComponent().getRouter().navTo("Routerouting");        // Uses UI5 routing for better consistency
+        },
+
+        
+        onNavigate: function(){
+            var oRouter = this.getOwnerComponent().getRouter();            
+            oRouter.navTo("optional", { id: "123" });
+        }
+
+         
+       
+    });
+});
