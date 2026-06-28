@@ -1,0 +1,29 @@
+<mvc:View controllerName="routing.controller.routing"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>First Page}">
+    <content>
+      
+
+      
+      <Button text="Go to another view" press="onNavigate" />
+      <Button text="Go to another with parameter" press="toParameter" />
+      <Button text="Go to another with optional" press="onNavigates" />
+      
+      <NavContainer id="navCont">            <!--does not require explicit routing to handle navigation within a single view.-->
+                                             <!--Routing Is Needed for Separate Views, Page 1 and Page 2 are both inside a single XML view-->
+      <Page id="page1" title="Page 1">       
+      <Button text="Go to page2" press="onNavg"></Button>    
+      </Page>
+      <Page id="page2" title="Page 2" showNavButton="true" navButtonPress="onNavgBack">
+      <Text text="Welcome to Page 2" />
+      <Button text="Go to page1" press="onNavgBack"></Button>
+      </Page>
+
+      </NavContainer>
+      
+
+
+    </content>
+    </Page>
+</mvc:View>
