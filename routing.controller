@@ -1,0 +1,41 @@
+sap.ui.define([
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/json/JSONModel"
+], (Controller, JSONModel) => {
+    "use strict";
+
+    return Controller.extend("routing.controller.routing", {
+        onInit() {
+        
+
+        },
+
+        onNavigate: function(){
+            var oRouter = this.getOwnerComponent().getRouter(); //fetches the router from the component.
+            oRouter.navTo("view2");
+            
+        },
+        onNavigates: function(){
+            var oRouter = this.getOwnerComponent().getRouter();
+            oRouter.navTo("optional");
+            
+        },
+        toParameter:function(){
+            var oRouter = this.getOwnerComponent().getRouter();
+            oRouter.navTo("parameter", { id: "123" });
+        },
+        
+        onNavg: function(){
+            var oNavContainer = this.getView().byId("navCont");  //Retrives nav container
+            oNavContainer.to(this.getView().byId("page2"));     // Navigate to Page 2
+            
+        },
+        onNavgBack: function() {
+            var oNavContainer = this.getView().byId("navCont");
+            oNavContainer.back();                             // Go back to previous page
+        }
+        
+        
+       
+    });
+});
