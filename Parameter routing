@@ -1,0 +1,37 @@
+<mvc:View controllerName="routing.controller.parameter"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>Second Page}" showNavButton="true" navButtonPress="onNavBack">
+    <content>
+    <Text id="paraText" text="{parameterModel>/id}" />  <!--binding to dynamically update the text based on value-->
+
+   </content>
+    </Page>
+</mvc:View>
+
+sap.ui.define([
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/json/JSONModel"
+], (Controller, JSONModel) => {
+    "use strict";
+
+    return Controller.extend("routing.controller.parameter", {
+        onInit() {
+            var oRouter = this.getOwnerComponent().getRouter();
+            oRouter.getRoute("parameter").attachPatternMatched(this._onRouteMatched, this); //controller, return
+       },
+
+        _onRouteMatched: function(oEvent) {
+            var sId = oEvent.getParameter("arguments").id ;   // Retrieve the passed parameter
+            var oModel = new JSONModel({ id: sId });
+            this.getView().setModel(oModel, "parameterModel");
+        },
+        
+        onNavBack: function(){
+            this.getOwnerComponent().getRouter().navTo("Routerouting");
+        }
+         
+       
+    });
+});
+
