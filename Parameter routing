@@ -1,3 +1,5 @@
+-------------VIEW CODE-----------------
+
 <mvc:View controllerName="routing.controller.parameter"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
@@ -8,6 +10,10 @@
    </content>
     </Page>
 </mvc:View>
+
+
+----------------CONTROLLER CODE-------------------
+
 
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
